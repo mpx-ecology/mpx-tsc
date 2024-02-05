@@ -1,0 +1,28 @@
+{
+  "name": "mpx-tsc",
+  "version": "0.0.1",
+  "description": "命令行中对Mpx文件与ts文件进行类型检查",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpx-ecology/mpx-tsc.git"
+  },
+  "bin": {
+    "mpx-tsc": "bin/mpx-tsc.js"
+  },
+  "keywords": [
+    "typescript",
+    "@mpxjs",
+    "miniprogram",
+    "type-check"
+  ],
+  "author": "Blackgan3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mpx-ecology/mpx-tsc/issues"
+  },
+  "homepage": "https://github.com/mpx-ecology/mpx-tsc#readme"
+}
