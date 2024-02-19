@@ -4,6 +4,7 @@ const fs = require('fs')
 const tsPkg = require('typescript/package.json')
 const readFileSync = fs.readFileSync
 const tscPath = require.resolve('typescript/lib/tsc')
+const proxyApiPath = require.resolve('../src/index')
 
 fs.readFileSync = (...args) => {
   if (args[0] === tscPath) {
@@ -12,6 +13,9 @@ fs.readFileSync = (...args) => {
     tryReplace(/supportedTSExtensions = .*(?=;)/, s => s + '.concat([[".mpx"]])')
     tryReplace(/supportedJSExtensions = .*(?=;)/, s => s + '.concat([[".mpx"]])')
     tryReplace(/allSupportedExtensions = .*(?=;)/, s => s + '.concat([[".mpx"]])')
+
+    // proxy createProgram apis
+    tryReplace(/function createProgram\(.+\) {/, s => s + ` debugger; return require(${JSON.stringify(proxyApiPath)}).createProgram(...arguments);`);
 
     return tsc
     // add *.mpx files to allow extensions
