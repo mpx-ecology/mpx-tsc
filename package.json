@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/mpx-ecology/mpx-tsc#readme",
   "dependencies": {
-    "@volar/typescript": "^2.0.4",
+    "@volar/typescript": "~1.11.1",
     "@vue/language-core": "^1.8.27",
     "semver": "^7.6.0"
   }
