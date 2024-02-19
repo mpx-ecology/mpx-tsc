@@ -1,5 +1,5 @@
 {
-  "name": "mpx-tsc",
+  "name": "@mpxjs/mpx-tsc",
   "version": "0.0.1",
   "description": "命令行中对Mpx文件与ts文件进行类型检查",
   "main": "index.js",
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/mpx-ecology/mpx-tsc#readme",
   "dependencies": {
     "@volar/typescript": "^2.0.4",
-    "@vue/language-core": "^1.8.27"
+    "@vue/language-core": "^1.8.27",
+    "semver": "^7.6.0"
   }
 }
