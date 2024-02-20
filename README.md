@@ -4,7 +4,7 @@
 ```
 npm i @mpxjs/mpx-tsc -D
 
-mpx-tsc --no-emit
+mpx-tsc --noEmit
 ```
 
 ## 详细描述
