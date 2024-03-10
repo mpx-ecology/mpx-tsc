@@ -7,3 +7,9 @@ node_modules
 .vscode-test-web
 extensions/*/meta.json
 extensions/*/stats.html
+
+*.d.ts
+*.js
+*.map
+# ! 测试用例待完善
+test-*
