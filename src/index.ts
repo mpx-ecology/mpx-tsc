@@ -1,6 +1,6 @@
-import { runTsc } from "@volar/typescript/lib/quickstart/runTsc";
 import * as vue from "@vue/language-core";
-import type * as ts from 'typescript';
+import { runTsc } from "./runTsc";
+import type * as TypeTS from "typescript";
 
 const windowsPathReg = /\\/g;
 
@@ -54,7 +54,7 @@ export function run() {
   }
 }
 
-export function createFakeGlobalTypesHolder(options: ts.CreateProgramOptions) {
+export function createFakeGlobalTypesHolder(options: TypeTS.CreateProgramOptions) {
   const firstVueFile = options.rootNames.find((fileName) =>
     fileName.endsWith(".vue")
   );

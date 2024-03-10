@@ -2,8 +2,9 @@
 	"name": "@mpxjs/mpx-tsc",
 	"version": "1.0.0",
 	"description": "命令行中对Mpx文件与ts文件进行类型检查",
+	"main": "lib/index.js",
 	"scripts": {
-		"build": "tsc",
+		"build": "tsc -b",
 		"watch": "tsc -w",
 		"test": "vitest run"
 	},
@@ -32,8 +33,10 @@
 		"mpx-tsc": "bin/mpx-tsc.js"
 	},
 	"dependencies": {
+		"@volar/language-core": "~2.1.2",
 		"@volar/typescript": "~2.1.2",
 		"@vue/language-core": "2.0.6",
+		"path-browserify": "^1.0.1",
 		"semver": "^7.5.4"
 	},
 	"peerDependencies": {
@@ -41,6 +44,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "latest",
+		"@types/path-browserify": "^1.0.2",
 		"vitest": "latest"
 	}
 }

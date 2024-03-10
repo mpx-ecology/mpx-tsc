@@ -5,7 +5,7 @@
 	"json.format.keepLines": true,
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"[typescript]": {
-		"editor.defaultFormatter": "vscode.typescript-language-features"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[javascript]": {
 		"editor.defaultFormatter": "vscode.typescript-language-features"
@@ -18,8 +18,8 @@
 	},
 	"vue.server.path": "./extensions/vscode/server.js",
 	"files.exclude": {
-		"*.d.ts": true,
+		// "*.d.ts": true,
 		// "*.js": true,
-		"*.map": true,
+		// "*.map": true,
 	}
 }
