@@ -8,7 +8,7 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[javascript]": {
-		"editor.defaultFormatter": "vscode.typescript-language-features"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[json]": {
 		"editor.defaultFormatter": "vscode.json-language-features"
@@ -18,8 +18,8 @@
 	},
 	"vue.server.path": "./extensions/vscode/server.js",
 	"files.exclude": {
-		// "*.d.ts": true,
-		// "*.js": true,
-		// "*.map": true,
+		"*.d.ts": true,
+		"*.js": true,
+		"*.map": true,
 	}
 }

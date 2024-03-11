@@ -1,13 +1,12 @@
 import * as vue from "@vue/language-core";
-import { runTsc } from "./runTsc";
+import { runTsc } from "@volar/typescript/lib/quickstart/runTsc";
 import type * as TypeTS from "typescript";
 
 const windowsPathReg = /\\/g;
 
 export function run() {
-  let runExtensions = [".vue"];
+  let runExtensions = [".mpx", ".vue"];
 
-  const extensionsChangedException = new Error("extensions changed");
   const main = () =>
     runTsc(
       require.resolve("typescript/lib/tsc"),
@@ -23,38 +22,36 @@ export function run() {
               ).vueOptions
             : {};
         const resolvedVueOptions = vue.resolveVueCompilerOptions(vueOptions);
-        const { extensions } = resolvedVueOptions;
+        // const { extensions } = resolvedVueOptions;
+        resolvedVueOptions.extensions = runExtensions;
+        console.log("[shun]-0", options.options);
+        console.log("[shun]-1", resolvedVueOptions);
         const fakeGlobalTypesHolder = createFakeGlobalTypesHolder(options);
-        if (
-          runExtensions.length === extensions.length &&
-          runExtensions.every((ext) => extensions.includes(ext))
-        ) {
-          const vueLanguagePlugin = vue.createVueLanguagePlugin(
-            ts,
-            (id) => id,
-            (fileName) => fileName === fakeGlobalTypesHolder,
-            options.options,
-            resolvedVueOptions,
-            false
-          );
-          return [vueLanguagePlugin];
-        } else {
-          runExtensions = extensions;
-          throw extensionsChangedException;
-        }
+        console.log("[shun]-2", fakeGlobalTypesHolder);
+
+        const vueLanguagePlugin = vue.createVueLanguagePlugin(
+          ts,
+          (id) => id,
+          (fileName) => fileName === fakeGlobalTypesHolder,
+          options.options,
+          resolvedVueOptions,
+          false
+        );
+				console.log('[shun] vueLanguagePlugin:', vueLanguagePlugin);
+        return [vueLanguagePlugin];
       }
     );
 
   try {
     main();
   } catch (err) {
-    if (err === extensionsChangedException) {
-      main();
-    }
+    console.error(err);
   }
 }
 
-export function createFakeGlobalTypesHolder(options: TypeTS.CreateProgramOptions) {
+export function createFakeGlobalTypesHolder(
+  options: TypeTS.CreateProgramOptions
+) {
   const firstVueFile = options.rootNames.find((fileName) =>
     fileName.endsWith(".vue")
   );

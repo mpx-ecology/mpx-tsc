@@ -4,9 +4,13 @@
 	"description": "命令行中对Mpx文件与ts文件进行类型检查",
 	"main": "lib/index.js",
 	"scripts": {
+		"setup": "npm run clean && pnpm i && npm run build",
 		"build": "tsc -b",
 		"watch": "tsc -w",
-		"test": "vitest run"
+		"test": "vitest run",
+		"clean": "npm run clean:node_modules && npm run clean:tsbuildinfo",
+		"clean:node_modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+		"clean:tsbuildinfo": "find . -name '*.tsbuildinfo' -type f -prune -exec rm -rf '{}' +"
 	},
 	"files": [
 		"bin",
