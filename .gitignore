@@ -13,4 +13,4 @@ extensions/*/stats.html
 */*.js
 */*.map
 # ! 测试用例待完善
-test-*
+test-workspace

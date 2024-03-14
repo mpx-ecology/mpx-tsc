@@ -6,7 +6,7 @@
 	"scripts": {
 		"setup": "npm run clean && pnpm i && npm run build",
 		"build": "tsc -b",
-		"watch": "tsc -w",
+		"watch": "tsc -b -w",
 		"test": "vitest run",
 		"clean": "npm run clean:node_modules && npm run clean:tsbuildinfo",
 		"clean:node_modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
@@ -39,6 +39,7 @@
 	"dependencies": {
 		"@volar/language-core": "~2.1.2",
 		"@volar/typescript": "~2.1.2",
+		"@vue/compiler-dom": "^3.4.21",
 		"@vue/language-core": "2.0.6",
 		"path-browserify": "^1.0.1",
 		"semver": "^7.5.4"
