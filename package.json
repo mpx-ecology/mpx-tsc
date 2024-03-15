@@ -1,33 +1,55 @@
 {
-  "name": "@mpxjs/mpx-tsc",
-  "version": "0.0.1",
-  "description": "命令行中对Mpx文件与ts文件进行类型检查",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mpx-ecology/mpx-tsc.git"
-  },
-  "bin": {
-    "mpx-tsc": "bin/mpx-tsc.js"
-  },
-  "keywords": [
-    "typescript",
-    "@mpxjs",
-    "miniprogram",
-    "type-check"
-  ],
-  "author": "Blackgan3",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mpx-ecology/mpx-tsc/issues"
-  },
-  "homepage": "https://github.com/mpx-ecology/mpx-tsc#readme",
-  "dependencies": {
-    "@volar/typescript": "~1.11.1",
-    "@vue/language-core": "^1.8.27",
-    "semver": "^7.6.0"
-  }
+	"name": "@mpxjs/mpx-tsc",
+	"version": "1.0.0",
+	"description": "命令行中对Mpx文件与ts文件进行类型检查",
+	"main": "lib/index.js",
+	"scripts": {
+		"setup": "npm run clean && pnpm i && npm run build",
+		"build": "tsc -b",
+		"watch": "tsc -b -w",
+		"test": "vitest run",
+		"clean": "npm run clean:node_modules && npm run clean:tsbuildinfo",
+		"clean:node_modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+		"clean:tsbuildinfo": "find . -name '*.tsbuildinfo' -type f -prune -exec rm -rf '{}' +"
+	},
+	"files": [
+		"bin",
+		"**/*.js",
+		"**/*.d.ts"
+	],
+	"keywords": [
+		"@mpxjs",
+		"miniprogram",
+		"typescript",
+		"tsc"
+	],
+	"license": "ISC",
+	"author": "Blackgan3,wangshunnn",
+	"homepage": "https://github.com/mpx-ecology/mpx-tsc#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mpx-ecology/mpx-tsc.git"
+	},
+	"bugs": {
+		"url": "https://github.com/mpx-ecology/mpx-tsc/issues"
+	},
+	"bin": {
+		"mpx-tsc": "bin/mpx-tsc.js"
+	},
+	"dependencies": {
+		"@volar/language-core": "~2.1.2",
+		"@volar/typescript": "~2.1.2",
+		"@vue/compiler-dom": "^3.4.21",
+		"@vue/language-core": "2.0.6",
+		"path-browserify": "^1.0.1",
+		"semver": "^7.5.4"
+	},
+	"peerDependencies": {
+		"typescript": "*"
+	},
+	"devDependencies": {
+		"@types/node": "latest",
+		"@types/path-browserify": "^1.0.2",
+		"vitest": "latest"
+	}
 }

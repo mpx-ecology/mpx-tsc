@@ -1,0 +1,28 @@
+{
+	"typescript.format.semicolons": "insert",
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"json.format.keepLines": true,
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"vue.server.path": "./extensions/vscode/server.js",
+	"files.exclude": {
+		// "*.d.ts": true,
+		// "*.js": true,
+		// "*.map": true,
+		// "lib/**/*.d.ts": true,
+		// "lib/**/*.js": true,
+		"lib/**/*.map": true
+	}
+}
