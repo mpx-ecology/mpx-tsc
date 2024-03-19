@@ -7,7 +7,6 @@ const windowsPathReg = /\\/g;
 
 export function run() {
   let runExtensions = [".mpx"];
-
   const main = () =>
     runTsc(
       require.resolve("typescript/lib/tsc"),

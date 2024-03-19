@@ -9,8 +9,8 @@ node_modules
 extensions/*/meta.json
 extensions/*/stats.html
 
-*/*.d.ts
-*/*.js
-*/*.map
+lib/**/*.d.ts
+lib/**/*.js
+lib/**/*.map
 # ! 测试用例待完善
 test-workspace

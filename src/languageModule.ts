@@ -1,10 +1,10 @@
 import type * as ts from "typescript";
 import type { VueCompilerOptions, VueLanguagePlugin } from "@vue/language-core";
 import { forEachEmbeddedCode, type LanguagePlugin } from "@volar/language-core";
-import { getDefaultVueLanguagePlugins } from "@vue/language-core/lib/plugins";
 import { VueGeneratedCode } from "@vue/language-core/lib/virtualFile/vueFile";
 import * as CompilerDOM from "@vue/compiler-dom";
 import * as CompilerVue2 from "@vue/language-core/lib/utils/vue2TemplateCompiler";
+import { getDefaultVueLanguagePlugins } from "./plugins";
 
 const normalFileRegistries: {
   key: string;
@@ -163,14 +163,7 @@ export function createVueLanguagePlugin(
             return {
               code,
               extension: "." + lang,
-              scriptKind:
-                lang === "js"
-                  ? ts.ScriptKind.JS
-                  : lang === "jsx"
-                  ? ts.ScriptKind.JSX
-                  : lang === "tsx"
-                  ? ts.ScriptKind.TSX
-                  : ts.ScriptKind.TS,
+              scriptKind: lang === "js" ? ts.ScriptKind.JS : ts.ScriptKind.TS,
             };
           }
         }
