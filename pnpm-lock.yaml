@@ -16,7 +16,13 @@ dependencies:
     version: 3.4.21
   '@vue/language-core':
     specifier: 2.0.6
-    version: 2.0.6(typescript@5.4.2)
+    version: 2.0.6
+  computeds:
+    specifier: ^0.0.1
+    version: 0.0.1
+  minimatch:
+    specifier: ^9.0.3
+    version: 9.0.3
   path-browserify:
     specifier: ^1.0.1
     version: 1.0.1
@@ -28,6 +34,9 @@ dependencies:
     version: 5.4.2
 
 devDependencies:
+  '@types/minimatch':
+    specifier: ^5.1.2
+    version: 5.1.2
   '@types/node':
     specifier: latest
     version: 20.11.27
@@ -397,6 +406,10 @@ packages:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
 
+  /@types/minimatch@5.1.2:
+    resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
+    dev: true
+
   /@types/node@20.11.27:
     resolution: {integrity: sha512-qyUZfMnCg1KEz57r7pzFtSGt49f6RPkPBis3Vo4PbS7roQEDn22hiHzl/Lo1q4i4hDEgBJmBF/NTNg2XR0HbFg==}
     dependencies:
@@ -482,7 +495,7 @@ packages:
       '@vue/shared': 3.4.21
     dev: false
 
-  /@vue/language-core@2.0.6(typescript@5.4.2):
+  /@vue/language-core@2.0.6:
     resolution: {integrity: sha512-UzqU12tzf9XLqRO3TiWPwRNpP4fyUzE6MAfOQWQNZ4jy6a30ARRUpmODDKq6O8C4goMc2AlPqTmjOHPjHkilSg==}
     peerDependencies:
       typescript: '*'
@@ -496,7 +509,6 @@ packages:
       computeds: 0.0.1
       minimatch: 9.0.3
       path-browserify: 1.0.1
-      typescript: 5.4.2
       vue-template-compiler: 2.7.16
     dev: false
 
