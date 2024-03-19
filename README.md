@@ -6,6 +6,8 @@
 npm i @mpxjs/mpx-tsc -D
 
 mpx-tsc --noEmit
+
+mpx-tsc --noEmit --skipLibCheck
 ```
 
 ## 开发
