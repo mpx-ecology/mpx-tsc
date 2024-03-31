@@ -20,21 +20,24 @@ export function run() {
                 ts.sys,
                 configFilePath.replace(windowsPathReg, "/")
               ).vueOptions
-            : {};
-        const resolvedVueOptions = vue.resolveVueCompilerOptions(vueOptions);
-        // const { extensions } = resolvedVueOptions;
-        resolvedVueOptions.extensions = runExtensions;
+            : vue.resolveVueCompilerOptions({});
+        vueOptions.extensions = runExtensions;
         const fakeGlobalTypesHolder = createFakeGlobalTypesHolder(options);
-
         const vueLanguagePlugin = createVueLanguagePlugin(
           ts,
           (id) => id,
           (fileName) => fileName === fakeGlobalTypesHolder,
           options.options,
-          resolvedVueOptions,
+          vueOptions,
           false
         );
         return [vueLanguagePlugin];
+      },
+      (fileName) => {
+        if (runExtensions.some((ext) => fileName.endsWith(ext))) {
+          return "mpx";
+        }
+        return resolveCommonLanguageId(fileName);
       }
     );
 
@@ -81,4 +84,31 @@ export function createFakeGlobalTypesHolder(
 
     return fakeFileName.replace(windowsPathReg, "/");
   }
+}
+
+export function resolveCommonLanguageId(fileNameOrUri: string) {
+  const ext = fileNameOrUri.split(".").pop()!;
+  switch (ext) {
+    case "js":
+      return "javascript";
+    case "cjs":
+      return "javascript";
+    case "mjs":
+      return "javascript";
+    case "ts":
+      return "typescript";
+    case "cts":
+      return "typescript";
+    case "mts":
+      return "typescript";
+    case "jsx":
+      return "javascriptreact";
+    case "tsx":
+      return "typescriptreact";
+    case "pug":
+      return "jade";
+    case "md":
+      return "markdown";
+  }
+  return ext;
 }

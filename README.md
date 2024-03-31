@@ -3,11 +3,12 @@
 ## 使用
 
 ```shell
+# 安装
 npm i @mpxjs/mpx-tsc -D
-
+# 类型检查
 mpx-tsc --noEmit
-
-mpx-tsc --noEmit --skipLibCheck
+# 增量模式加速
+mpx-tsc --noEmit --incremental
 ```
 
 ## 开发
@@ -27,7 +28,12 @@ pnpm clean
 pnpm build
 ```
 
-## Thanks
+## Credits
+
+The @mpxjs/mpx-tsc project is heavily inspired by:
 
 - [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc)
-- [volar](https://github.com/volarjs/volar.js)
+
+And supported by:
+
+- [Volar.js](https://github.com/volarjs/volar.js)

@@ -37,10 +37,10 @@
 		"mpx-tsc": "bin/mpx-tsc.js"
 	},
 	"dependencies": {
-		"@volar/language-core": "~2.1.2",
-		"@volar/typescript": "~2.1.2",
+		"@volar/language-core": "2.2.0-alpha.2",
+		"@volar/typescript": "2.2.0-alpha.2",
 		"@vue/compiler-dom": "^3.4.21",
-		"@vue/language-core": "2.0.6",
+		"@vue/language-core": "2.0.7",
 		"computeds": "^0.0.1",
 		"minimatch": "^9.0.3",
 		"path-browserify": "^1.0.1",
@@ -54,5 +54,11 @@
 		"@types/node": "latest",
 		"@types/path-browserify": "^1.0.2",
 		"vitest": "latest"
+	},
+	"pnpm": {
+		"overrides": {
+			"@volar/language-core": "2.2.0-alpha.2",
+			"@volar/typescript": "2.2.0-alpha.2"
+		}
 	}
 }
