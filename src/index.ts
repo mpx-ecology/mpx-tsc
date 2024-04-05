@@ -1,6 +1,5 @@
 import * as vue from "@vue/language-core";
 import { runTsc } from "@volar/typescript/lib/quickstart/runTsc";
-import type * as TypeTS from "typescript";
 import { createVueLanguagePlugin } from "./languageModule";
 
 const windowsPathReg = /\\/g;
@@ -22,11 +21,30 @@ export function run() {
               ).vueOptions
             : vue.resolveVueCompilerOptions({});
         vueOptions.extensions = runExtensions;
-        const fakeGlobalTypesHolder = createFakeGlobalTypesHolder(options);
+
+        const writeFile = options.host!.writeFile.bind(options.host);
+        options.host!.writeFile = (fileName, contents, ...args) => {
+          if (
+            fileName.endsWith(".d.ts") &&
+            vueLanguagePlugin
+              .getCanonicalFileName(fileName.replace(windowsPathReg, "/"))
+              .slice(0, -5) ===
+              vueLanguagePlugin.pluginContext.globalTypesHolder
+          ) {
+            contents = removeEmitGlobalTypes(contents);
+          }
+          return writeFile(fileName, contents, ...args);
+        };
+
         const vueLanguagePlugin = createVueLanguagePlugin(
           ts,
           (id) => id,
-          (fileName) => fileName === fakeGlobalTypesHolder,
+          options.host?.useCaseSensitiveFileNames?.() ?? false,
+          () => "",
+          () =>
+            options.rootNames.map((rootName) =>
+              rootName.replace(windowsPathReg, "/")
+            ),
           options.options,
           vueOptions,
           false
@@ -48,42 +66,11 @@ export function run() {
   }
 }
 
-export function createFakeGlobalTypesHolder(
-  options: TypeTS.CreateProgramOptions
-) {
-  const firstVueFile = options.rootNames.find((fileName) =>
-    fileName.endsWith(".mpx")
+export function removeEmitGlobalTypes(dts: string) {
+  return dts.replace(
+    /[^\n]*__VLS_globalTypesStart[\w\W]*__VLS_globalTypesEnd[^\n]*\n/,
+    ""
   );
-  if (firstVueFile) {
-    const fakeFileName = firstVueFile + "__VLS_globalTypes.mpx";
-
-    (options.rootNames as string[]).push(fakeFileName);
-
-    const fileExists = options.host!.fileExists.bind(options.host);
-    const readFile = options.host!.readFile.bind(options.host);
-    const writeFile = options.host!.writeFile.bind(options.host);
-
-    options.host!.fileExists = (fileName) => {
-      if (fileName.endsWith("__VLS_globalTypes.mpx")) {
-        return true;
-      }
-      return fileExists(fileName);
-    };
-    options.host!.readFile = (fileName) => {
-      if (fileName.endsWith("__VLS_globalTypes.mpx")) {
-        return '<script setup lang="ts"></script>';
-      }
-      return readFile(fileName);
-    };
-    options.host!.writeFile = (fileName, ...args) => {
-      if (fileName.endsWith("__VLS_globalTypes.mpx.d.ts")) {
-        return;
-      }
-      return writeFile(fileName, ...args);
-    };
-
-    return fakeFileName.replace(windowsPathReg, "/");
-  }
 }
 
 export function resolveCommonLanguageId(fileNameOrUri: string) {

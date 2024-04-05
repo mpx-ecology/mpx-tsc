@@ -4,23 +4,19 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@volar/language-core': 2.2.0-alpha.2
-  '@volar/typescript': 2.2.0-alpha.2
-
 dependencies:
   '@volar/language-core':
-    specifier: 2.2.0-alpha.2
-    version: 2.2.0-alpha.2
+    specifier: 2.2.0-alpha.5
+    version: 2.2.0-alpha.5
   '@volar/typescript':
-    specifier: 2.2.0-alpha.2
-    version: 2.2.0-alpha.2
+    specifier: 2.2.0-alpha.5
+    version: 2.2.0-alpha.5
   '@vue/compiler-dom':
     specifier: ^3.4.21
     version: 3.4.21
   '@vue/language-core':
-    specifier: 2.0.7
-    version: 2.0.7(typescript@5.4.2)
+    specifier: 2.0.10
+    version: 2.0.10
   computeds:
     specifier: ^0.0.1
     version: 0.0.1
@@ -463,22 +459,22 @@ packages:
       pretty-format: 29.7.0
     dev: true
 
-  /@volar/language-core@2.2.0-alpha.2:
-    resolution: {integrity: sha512-jZBLsmFf0Zp5zVrG5JNRhqBrjJgKaxjbyKFXU5lV3fADQLInn7HA8GXZgYPP1qYoKn7O1lG/Z/wl2z7H3/L4pQ==}
+  /@volar/language-core@2.2.0-alpha.5:
+    resolution: {integrity: sha512-RqERQ8HXxKC/HAGpDg7oG/Yg8n3rC3KEnYE3D7lcKIblU59JEZX73IWD/L3fdjzyeSglDWjL91iOblU8MuKEoA==}
     dependencies:
-      '@volar/source-map': 2.2.0-alpha.2
+      '@volar/source-map': 2.2.0-alpha.5
     dev: false
 
-  /@volar/source-map@2.2.0-alpha.2:
-    resolution: {integrity: sha512-FI9OBdY81HV9oQzMHjv519crNwkY0gcCTMQfdhqTPXCeHHZQ2SwyJ49vDDwNcXnBexNzYSIguDeP5QUUOGLIhg==}
+  /@volar/source-map@2.2.0-alpha.5:
+    resolution: {integrity: sha512-Lw1LOPgt1QGaQX9HstRTlBz5x6d5mGq9ZTFMeyWVr8/5YOv3hCU0ehtMTwmCiAX/ZyNSINFI01ODePy2hwy06A==}
     dependencies:
       muggle-string: 0.4.1
     dev: false
 
-  /@volar/typescript@2.2.0-alpha.2:
-    resolution: {integrity: sha512-7sFBz4R4OkrYxUfmp/TzCF6MkrIbhrYHty49FognIZ1ok8bDAFfC8BVDQo7v+TlCECJ6mAP6JNxBBlosA+Vgag==}
+  /@volar/typescript@2.2.0-alpha.5:
+    resolution: {integrity: sha512-9UKZSDTcgvKMXz9TiU1kHmu3uMuH8+M7oZ6/CzBt8LvFda+ec/ZDcvBjQg2rU5EVn4d+YPYcqenkeHre3tO7Og==}
     dependencies:
-      '@volar/language-core': 2.2.0-alpha.2
+      '@volar/language-core': 2.2.0-alpha.5
       path-browserify: 1.0.1
     dev: false
 
@@ -499,21 +495,20 @@ packages:
       '@vue/shared': 3.4.21
     dev: false
 
-  /@vue/language-core@2.0.7(typescript@5.4.2):
-    resolution: {integrity: sha512-Vh1yZX3XmYjn9yYLkjU8DN6L0ceBtEcapqiyclHne8guG84IaTzqtvizZB1Yfxm3h6m7EIvjerLO5fvOZO6IIQ==}
+  /@vue/language-core@2.0.10:
+    resolution: {integrity: sha512-3ULtX6hSPJNdNChi6aJ4FfdJNs5EShBLxnwLFTqrk2N1385WOwGVlbHeS2R6W9s9lXZ0+mC2bv4VlFSyeNPNGA==}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
       typescript:
         optional: true
     dependencies:
-      '@volar/language-core': 2.2.0-alpha.2
+      '@volar/language-core': 2.2.0-alpha.5
       '@vue/compiler-dom': 3.4.21
       '@vue/shared': 3.4.21
       computeds: 0.0.1
       minimatch: 9.0.3
       path-browserify: 1.0.1
-      typescript: 5.4.2
       vue-template-compiler: 2.7.16
     dev: false
 
