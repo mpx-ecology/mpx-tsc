@@ -16,10 +16,12 @@ mpx-tsc --noEmit --incremental
 ```shell
 # 安装依赖
 pnpm i
-# tsc watch 模式
+# 构建
+pnpm build
+# watch 模式
 pnpm watch
-# 清除 node_modules 和 tsc 缓存
-pnpm clean
+# 清除缓存重新构建
+pnpm resetup
 ```
 
 ## 发布前先本地构建
