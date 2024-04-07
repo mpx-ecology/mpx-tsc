@@ -1,3 +1,7 @@
+## [1.0.5](https://github.com/mpx-ecology/mpx-tsc/compare/v1.0.5-beta.0...v1.0.5) (2024-04-07)
+
+
+
 ## [1.0.5-beta.0](https://github.com/mpx-ecology/mpx-tsc/compare/v1.0.4...v1.0.5-beta.0) (2024-04-07)
 
 
