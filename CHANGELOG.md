@@ -1,3 +1,12 @@
+## [1.0.5-beta.0](https://github.com/mpx-ecology/mpx-tsc/compare/v1.0.4...v1.0.5-beta.0) (2024-04-07)
+
+
+### Features
+
+* bump volar 2.2.0-alpha.6 ([677f74b](https://github.com/mpx-ecology/mpx-tsc/commit/677f74b9a5ced6996777c1cae07dc51b8eaa21c4))
+
+
+
 ## [1.0.4](https://github.com/mpx-ecology/mpx-tsc/compare/v1.0.3...v1.0.4) (2024-04-05)
 
 
