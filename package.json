@@ -1,8 +1,9 @@
 {
 	"name": "@mpxjs/mpx-tsc",
 	"version": "1.0.5",
-	"description": "命令行中对Mpx文件与ts文件进行类型检查",
+	"description": "命令行中对 Mpx 文件与 ts 文件进行类型检查",
 	"main": "lib/index.js",
+	"packageManager": "pnpm@10.6.5",
 	"scripts": {
 		"resetup": "npm run clean && pnpm i && npm run build",
 		"build": "tsc -b",
@@ -13,6 +14,9 @@
 		"clean:tsbuildinfo": "find . -name '*.tsbuildinfo' -type f -prune -exec rm -rf '{}' +",
 		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
 		"version": "npm run changelog && git add CHANGELOG.md"
+	},
+	"bin": {
+		"mpx-tsc": "bin/mpx-tsc.js"
 	},
 	"files": [
 		"bin",
@@ -35,27 +39,27 @@
 	"bugs": {
 		"url": "https://github.com/mpx-ecology/mpx-tsc/issues"
 	},
-	"bin": {
-		"mpx-tsc": "bin/mpx-tsc.js"
-	},
 	"dependencies": {
 		"@volar/language-core": "2.2.0-alpha.6",
 		"@volar/typescript": "2.2.0-alpha.6",
 		"@vue/compiler-dom": "^3.4.21",
+		"@vue/compiler-sfc": "^3.5.13",
 		"@vue/language-core": "2.0.10",
+		"@vue/shared": "^3.5.13",
 		"computeds": "^0.0.1",
 		"minimatch": "^9.0.3",
 		"path-browserify": "^1.0.1",
-		"semver": "^7.5.4"
-	},
-	"peerDependencies": {
-		"typescript": "*"
+		"semver": "^7.7.1"
 	},
 	"devDependencies": {
 		"@types/minimatch": "^5.1.2",
 		"@types/node": "latest",
 		"@types/path-browserify": "^1.0.2",
+		"@types/semver": "^7.5.8",
 		"conventional-changelog-cli": "^4.1.0",
 		"vitest": "latest"
+	},
+	"peerDependencies": {
+		"typescript": ">=5"
 	}
 }

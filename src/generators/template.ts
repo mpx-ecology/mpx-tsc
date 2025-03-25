@@ -1483,6 +1483,7 @@ export function* generate(
                 vueCompilerOptions
               );
 
+		// @ts-expect-error ignore
         if (prop.modifiers.some((m) => m === "prop" || m === "attr")) {
           propName = propName?.substring(1);
         }
