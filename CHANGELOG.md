@@ -1,3 +1,12 @@
+## [1.0.6](https://github.com/mpx-ecology/mpx-tsc/compare/v1.0.5...v1.0.6) (2025-03-25)
+
+
+### Bug Fixes
+
+* support ts@5.7 ([84e9263](https://github.com/mpx-ecology/mpx-tsc/commit/84e9263ac2602faaa3834508217791552776c513))
+
+
+
 ## [1.0.5](https://github.com/mpx-ecology/mpx-tsc/compare/v1.0.5-beta.0...v1.0.5) (2024-04-07)
 
 

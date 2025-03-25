@@ -1,6 +1,6 @@
 {
 	"name": "@mpxjs/mpx-tsc",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "命令行中对 Mpx 文件与 ts 文件进行类型检查",
 	"main": "lib/index.js",
 	"packageManager": "pnpm@10.6.5",
